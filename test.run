@@ -22,18 +22,19 @@
 #SBATCH --nodes=1
 #################
 #memory per node; default is 4000 MB per CPU
-#SBATCH --mem=64000
+#SBATCH --mem=16000
 #you could use --mem-per-cpu; they mean what we are calling cores
 #################
 #tasks to run per node; a "task" is usually mapped to a MPI processes.
 # for local parallelism (OpenMP or threads), use "--ntasks-per-node=1 --cpus-per-task=16" instead
 #SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=16
+#SBATCH --cpus-per-task=4
 #################
 
 PYSPARK_PYTHON=./env/bin/python
 
 module load python/3.4.3
+module load jre/1.8.0_91
 
 # Start the Spark master / slave.
 MASTER=$(hostname)
@@ -45,6 +46,6 @@ sleep 20
 spark-submit \
   --conf spark.default.parallelism=16 \
   --driver-memory 4000m \
-  --executor-memory 56000m \
+  --executor-memory 12000m \
   --master spark://$MASTER:7077 \
   ./bin/avg-word-lengths.py $@
