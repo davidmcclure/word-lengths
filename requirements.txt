@@ -2,5 +2,6 @@
 ipython
 jupyter
 attrs
-matplotlib
 statsmodels
+matplotlib
+click

@@ -98,3 +98,5 @@ ENV/
 /site
 
 /data
+metastore_db
+spark-warehouse
