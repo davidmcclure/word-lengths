@@ -6,10 +6,10 @@
 #SBATCH --job-name=avg-word-lengths
 #################
 #a file for job output, you can check job progress
-#SBATCH --output=avg-word-lengths
+#SBATCH --output=avg-word-lengths.out
 #################
 # a file for errors from the job
-#SBATCH --error=avg-word-lengths
+#SBATCH --error=avg-word-lengths.err
 #################
 #time you think you need; default is one hour
 #in minutes in this case, hh:mm:ss
@@ -31,10 +31,10 @@
 #SBATCH --cpus-per-task=4
 #################
 
-PYSPARK_PYTHON=./env/bin/python
-
 module load python/3.4.3
 module load jre/1.8.0_91
+
+PYSPARK_PYTHON=/share/PI/malgeehe/code/word-lengths/env/bin/python
 
 # Start the Spark master / slave.
 MASTER=$(hostname)
