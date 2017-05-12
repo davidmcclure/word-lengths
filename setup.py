@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='word-length',
+    name='word-lengths',
     version='0.1.0',
     description='How long are words in novels?',
     url='https://github.com/davidmcclure/word-length',

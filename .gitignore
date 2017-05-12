@@ -100,3 +100,5 @@ ENV/
 /data
 metastore_db
 spark-warehouse
+*.csv
+*.json

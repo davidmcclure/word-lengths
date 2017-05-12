@@ -45,7 +45,7 @@ def main(in_path, out_path):
     result = novels.limit(10).rdd.map(avg_word_lengths)
 
     df = spark.createDataFrame(result, SCHEMA)
-    df.write.option('header', True).csv(out_path)
+    df.write.json(out_path)
 
 
 if __name__ == '__main__':
